@@ -2,11 +2,13 @@
 for (var i=0; i<10; i++){
     document.write(i+1);
 }
+document.write("<br>")
 
 //Coding challenge #2: Print the odd numbers less than 100
 for (var i=1; i<=100; i+=2){
     document.write(i);
 }
+document.write("<br>")
 
 //Coding challenge #3: Print the multiplication table with 7
 for (var i=1; i<=10; i++){
@@ -27,4 +29,132 @@ var sum=0;
 for (var i=1; i<=10; i++){
     sum+=i;
 }
-document.write(sum);
+document.write(sum + "<br>");
+
+//Coding challenge #6: Calculate 10!
+var total=1;
+
+for (var i=1; i<=10; i++){
+    total *=i;
+}
+document.write(total + "<br>");
+
+//Coding challenge #7: Calculate the sum of odd numbers greater than 10 and less than 30
+var sum=0;
+
+for (var i=11; i<=30; i+=2){
+    sum+=i;
+}
+document.write(sum + "<br>");
+
+//Coding challenge #8: Create a function that will convert from Celsius to Fahrenheit
+function celsiusToFahrenheit(cel){
+    var far=cel*(9/5)+32;
+    return far;
+}
+
+let cel= prompt ("Input the temperature in Celsius");
+
+var converted= celsiusToFahrenheit(cel);
+
+document.write("The temperature in Fahrenheit is "+ converted + "<br>");
+
+//Coding challenge #9: Create a function that will convert from Fahrenheit to Celsius
+function fahrenheitToCelsius(far){
+    var cel=(far-32) * 5/9;
+    return cel;
+}
+
+let far= prompt ("Input the temperature in Fahrenheit");
+
+var converted= fahrenheitToCelsius(far);
+
+document.write("The temperature in Celsius is "+ converted + "<br>");
+
+//Coding challenge #10: Calculate the sum of numbers in an array of numbers
+function arraySum(arr){
+    var sum=0;
+
+    for (var i=0; i<arr.length; i++){
+        sum+=arr[i];
+    }
+    return sum;
+}
+
+var arr=[2,3,5,6,15,19,21];
+
+document.write("The sum of the numbers in the array is: "+ arraySum(arr)+ "<br>");
+
+//Coding challenge #11: Calculate the average of the numbers in an array of numbers
+function arrayAvg(arr){
+    var sum=0;
+
+    for (var i=0; i<arr.length; i++){
+        sum+=arr[i];
+    }
+    var avg=sum/arr.length
+    return avg;
+}
+
+var arr=[2,3,5,6,15,19,21];
+
+document.write("The average of the numbers in the array is: "+arrayAvg(arr)+ "<br>");
+
+//Coding challenge #12: Create a function that receives an array of numbers and returns an array containing only the positive numbers
+function positiveArr(arr){
+    var arr2=[];
+    for(var i=0; i<arr.length; i++){
+        if(arr[i]>=0){
+            arr2.push(arr[i]);
+        }
+    }
+    return arr2;
+}
+var arr=[-2,-5,2,6,14,-15];
+
+document.write("The array containing only the positive numbers is: "+ positiveArr(arr)+ "<br>");
+
+// Coding challenge #13: Find the maximum number in an array of numbers
+function findMax(arr){
+    var max=0;
+
+    for (var i=0; i<arr.length; i++){
+        if(arr[i]>max){
+            max=arr[i];
+        }
+    }
+    return max;
+}
+
+var arr=[-2,-5,2,6,14,-15];
+
+document.write("The maximum number in the array is: "+ findMax(arr)+ "<br>");
+
+//Coding challenge #14: Print the first 10 Fibonacci numbers without recursion
+
+var fa=0;
+var fb=1;
+
+document.write (fa+ " ");
+document.write (fb + " ");
+
+for (var i=1; i<9; i++){
+    fn=fa+fb;
+    fa=fb;
+    fb=fn;
+    document.write (fn + " ");
+    
+}
+document.write ("<br>");
+
+//Coding challenge #15: Create a function that will find the nth Fibonacci number using recursion
+function fibonacci(n) {
+    if (n <= 1) {
+      return n;
+    } else {
+      return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+  }
+
+ var n=prompt("Enter a number")
+ document.write("The "+ n+"th fibonacci number is "+ fibonacci(n));
