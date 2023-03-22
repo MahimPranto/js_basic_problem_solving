@@ -156,5 +156,71 @@ function fibonacci(n) {
     }
   }
 
- var n=prompt("Enter a number")
- document.write("The "+ n+"th fibonacci number is "+ fibonacci(n));
+ var n=prompt("Enter a number to find the nth Fibonacci number")
+ document.write("The "+ n+"th fibonacci number is "+ fibonacci(n) + "<br>");
+
+ //Coding challenge #16: Create a function that will return a Boolean specifying if a number is prime
+ function isPrime(n){
+    if (n<=1)
+        return false;
+    else if(n>=2){
+        range=Math.sqrt(n);
+        for (var i=2; i<=range; i++){
+            if (n%i==0)
+                return false;
+        }
+        return true;
+    }
+
+ }
+ var n=prompt("Enter a number to check if it is a prime number:");
+
+ document.write("Is "+n+" a prime number? "+isPrime(n) + "<br>");
+
+ //Coding challenge #17: Calculate the sum of digits of a positive integer number
+
+ function sumOfDigits(number){
+    sum=0;
+    while(number>0){
+        sum+=(number%10);
+        number=Math.floor(number/10);
+    }
+    return sum;
+ }
+
+ let number;
+
+ do{
+    number=prompt("Enter a positive integer number")
+ } while (number<=0)
+
+ document.write("The sum of digits of "+number+" is: "+ sumOfDigits(number)+"<br>");
+
+ //Coding challenge #18: Print the first 100 prime numbers
+
+ function isPrime(n){
+    if (n<=1)
+        return false;
+    else if(n>=2){
+        range=Math.sqrt(n);
+        for (var i=2; i<=range; i++){
+            if (n%i==0)
+                return false;
+        }
+        return true;
+    }
+ }
+
+ function printPrime(total){
+    var count=0;
+    var i=0;
+ while (count<total){
+    if (isPrime(i)){
+        document.write(i+",")
+        count++;
+    }
+    i++;
+ }
+ }
+
+printPrime(100);
