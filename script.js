@@ -216,11 +216,92 @@ function fibonacci(n) {
     var i=0;
  while (count<total){
     if (isPrime(i)){
-        document.write(i+",")
+        document.write(i+" ")
         count++;
     }
     i++;
  }
+ document.write("<br>")
  }
 
-printPrime(100);
+ printPrime(100);
+
+//Coding challenge #19: Create a function that will return in an array the first "nPrimes" prime numbers greater than a particular number "startAt"
+
+function isPrime(n){
+    if (n<=1)
+        return false;
+    else if(n>=2){
+        range=Math.sqrt(n);
+        for (var i=2; i<=range; i++){
+            if (n%i==0)
+                return false;
+        }
+        return true;
+    }
+ }
+
+ var nPrimes= prompt("Enter how many prime numbers you want to see:")
+ var startAt= prompt("Enter the starting number:")
+
+ function printPrimen(nPrimes, startAt){
+    var arr=[];
+    var count=0;
+    var i=startAt;
+    while(count<nPrimes){
+        if(isPrime(i)){
+            arr.push(i);
+
+            count++;
+        }
+        i++
+    }
+    return arr;
+ }
+
+ document.write(printPrimen(nPrimes,startAt)+"<br>")
+
+ //Coding challenge #20: Rotate an array to the left 1 position
+
+ function rotateArrayLeft(arr){
+    var left=arr.shift();
+    arr.push(left);
+    return arr;
+ }
+
+ var arr=[1,2,3,4,5];
+ 
+ document.write(rotateArrayLeft(arr)+"<br>");
+
+ //Coding challenge #21: Rotate an array to the right 1 position
+
+ function rotateArrayRight(arr){
+    var right=arr.pop();
+    arr.unshift(right);
+    return arr;
+ }
+
+ var arr=[1,2,3,4,5];
+ 
+ document.write(rotateArrayRight(arr)+"<br>");
+
+ //Coding challenge #22: Reverse an array
+
+ var arr=[1,2,3,4,5];
+ 
+ document.write(arr.reverse()+"<br>");
+
+ //Coding challenge #23: Reverse a string
+ function reverseString(str1){
+    var str2="";
+    for (var i=str1.length-1; i>=0; i--){
+        var letter=str1[i];
+        str2+=letter;
+    }
+    return str2;
+ }
+ str1="Hello world!";
+
+ document.write(reverseString(str1)+"<br>");
+
+ //Coding challenge #24: Create a function that will merge two arrays and return the result as a new array
