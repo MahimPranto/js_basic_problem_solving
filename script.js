@@ -6,7 +6,7 @@ document.write("<br>")
 
 //Coding challenge #2: Print the odd numbers less than 100
 for (var i=1; i<=100; i+=2){
-    document.write(i);
+    document.write(i+ " ");
 }
 document.write("<br>")
 
@@ -305,3 +305,173 @@ function isPrime(n){
  document.write(reverseString(str1)+"<br>");
 
  //Coding challenge #24: Create a function that will merge two arrays and return the result as a new array
+ 
+ function mergeArray(arr1, arr2){
+    var arr3= arr1.concat(arr2);
+    return arr3;
+ }
+
+ arr1= [1,5,7,12,23];
+ arr2= [25,27,30,32];
+
+ document.write(mergeArray(arr1, arr2)+"<br>");
+
+ //Coding challenge #25: Create a function that will receive two arrays of numbers as arguments and return an array composed of all the numbers that are either in the first array or second array but not in both
+
+ function mergeArrayExclusive(arr1, arr2){
+    var mergedArray=[];
+
+    for (var i=0; i<arr1.length; i++){
+        for (var j=0; j<arr2.length; j++){
+            if(arr1[i]==arr2[j])
+            break;
+            
+            if (j==arr2.length-1 && arr1[i]!=arr2[j])
+                mergedArray.push(arr1[i]);
+        }
+
+    }
+    for (var i=0; i<arr2.length; i++){
+        for (var j=0; j<arr1.length; j++){
+            if(arr2[i]==arr1[j])
+            break;
+            
+            if (j==arr1.length-1 && arr2[i]!=arr1[j])
+                mergedArray.push(arr2[i]);
+        }
+    }
+    return mergedArray;
+ }
+
+ arr1=[1,4,5,9,11,23];
+ arr2=[2,3,5,10,11,24];
+
+ document.write(mergeArrayExclusive(arr1,arr2)+"<br>");
+
+ //Coding challenge #26: Create a function that will receive two arrays and will return an array with elements that are in the first array but not in the second
+
+ function mergeFirst(arr1, arr2){
+    var mergedFirst=[];
+
+    for (var i=0; i<arr1.length; i++){
+        for (var j=0; j<arr2.length; j++){
+            if(arr1[i]==arr2[j])
+            break;
+            
+            if (j==arr2.length-1 && arr1[i]!=arr2[j])
+            mergedFirst.push(arr1[i]);
+        }
+    }
+    return mergedFirst;
+ }
+
+ arr1=[1,4,5,9,11,23];
+ arr2=[2,3,5,10,11,24];
+
+ document.write(mergeFirst(arr1,arr2)+"<br>");
+
+ //Coding challenge #27: Create a function that will receive an array of numbers as argument and will return a new array with distinct elements
+
+ function distinctArray(arr){
+    var newArray=[];
+
+    for (var i=0; i<arr.length; i++){
+        if(!newArray.includes(arr[i])){
+            newArray.push(arr[i]);
+        }
+    }
+    return newArray;
+ }
+
+ arr=[1,4,5,5,9,11,11,23];
+
+ document.write(distinctArray(arr)+"<br>");
+
+ //Coding challenge #28: Calculate the sum of first 100 prime numbers
+
+ function isPrime(n){
+    if (n<=1)
+        return false;
+    else if(n>=2){
+        range=Math.sqrt(n);
+        for (var i=2; i<=range; i++){
+            if (n%i==0)
+                return false;
+        }
+        return true;
+    }
+ }
+
+ function sumPrimeNumbers(n){
+    var count=0;
+    var i=0;
+    var sum=0;
+    while (count!=n){
+        if (isPrime(i)){
+            sum+=i;
+            count++;
+        }
+        i++;
+    }
+    return sum;
+ }
+ document.write("The sum of the first 100 prime number is: "+ sumPrimeNumbers(100)+"<br>");
+
+ //Coding challenge #29: Print the distance between the first 100 prime numbers
+
+ function isPrime(n){
+    if (n<=1)
+        return false
+    if (n>1){
+        var range=Math.sqrt(n);
+        for (var i=2; i<=range; i++){
+            if(n%i==0)
+                return false;
+        }
+        return true;
+    }
+ }
+
+ function distanceBetweenPrime(n){
+    var count=1;
+    var prev=2;
+    var next=prev+1;
+    while(count!=n){
+       if(isPrime(next)){
+        var distance=next-prev;
+        document.write(count+1+"-> ("+next+"-"+prev+")="+distance+"<br>");
+        prev=next;
+        count++;
+       }
+        next++;
+    }
+ }
+ distanceBetweenPrime(100);
+
+ //Coding challenge #30-a: Create a function that will add two positive numbers of indefinite size. The numbers are received as strings and the result should be also provided as string.
+
+ function addTwoPositiveNumber(n1,n2){
+    var number1=parseFloat(n1);
+    var number2=parseFloat(n2);
+    var result=number1+number2;
+
+    return result;
+ }
+
+ n1="2343556342";
+ n2="12324442";
+
+ document.write(addTwoPositiveNumber(n1,n2));
+
+ //Coding challenge #31a. Create a function that will return the number of words in a text
+
+ function countWords(text) {
+    text = text.trim();
+    text = text.replace(/\s+/g, " ");
+    var words = text.split(" ");
+    
+    return words.length;
+  }
+  
+   text="Hello World   ";
+   document.write(countWords(text));
